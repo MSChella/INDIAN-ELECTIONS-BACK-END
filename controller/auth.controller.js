@@ -13,7 +13,18 @@ const User = require('../models/user.model');
 
 router.post('/signup', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, fullName, sex,
+            age,
+            contactInfo,
+            email,
+            address,
+            permanentAddress,
+            temporaryAddress,
+            state,
+            fathersName,
+            mothersName,
+            spouseName,
+            maritalStatus } = req.body;
 
         // Hash the password before saving it to the database
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -21,6 +32,19 @@ router.post('/signup', async (req, res) => {
         const user = new User({
             username,
             password: hashedPassword,
+            fullName,
+            sex,
+            age,
+            contactInfo,
+            email,
+            address,
+            permanentAddress,
+            temporaryAddress,
+            state,
+            fathersName,
+            mothersName,
+            spouseName,
+            maritalStatus
         });
 
         const savedUser = await user.save();
