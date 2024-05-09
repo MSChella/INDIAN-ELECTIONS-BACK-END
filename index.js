@@ -4,7 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const { connectDatabase } = require('./dbConfig')
+const { connectDatabase } = require('./dbConfig');
+const path = require('path');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,23 +20,19 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // Middleware
-app.use(bodyParser.json());
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 // MongoDB Connection
 connectDatabase();
 
+
 app.use(express.static(__dirname + "/public"));
-// Routes
-
-const usersRouter = require('./controller/auth.controller');
-
-
-
-app.use('/api/auth', usersRouter);
 
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+app.use("/", require('./app'));

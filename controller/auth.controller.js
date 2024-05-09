@@ -14,7 +14,9 @@ const User = require('../models/user.model');
 router.post('/signup', async (req, res) => {
     try {
         const { username, password,
-            fullName, sex,
+            firstName,
+            lastName,
+            sex,
             age,
             contactInfo,
             email,
@@ -22,6 +24,7 @@ router.post('/signup', async (req, res) => {
             permanentAddress,
             temporaryAddress,
             state,
+            aadharNo,
             fathersName,
             mothersName,
             spouseName,
@@ -33,7 +36,8 @@ router.post('/signup', async (req, res) => {
         const user = new User({
             username,
             password: hashedPassword,
-            fullName,
+            firstName,
+            lastName,
             sex,
             age,
             contactInfo,
@@ -42,6 +46,7 @@ router.post('/signup', async (req, res) => {
             permanentAddress,
             temporaryAddress,
             state,
+            aadharNo,
             fathersName,
             mothersName,
             spouseName,
