@@ -3,7 +3,7 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 const verifyToken = (req, res, next) => {
-    const authHeader = req.header('Authorization');
+    const authHeader = req.headers('Authorization');
     ;
     console.log('Auth Header:', authHeader);
     console.log('Token:', token);
