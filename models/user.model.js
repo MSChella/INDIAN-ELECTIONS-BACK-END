@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     mothersName: { type: String, required: true, unique: true },
     spouseName: { type: String, required: true, unique: true },
     maritalStatus: { type: String, required: true, unique: true }
-    // Add other customer details as needed
+
 });
 
 const User = mongoose.model('User', userSchema, 'users');

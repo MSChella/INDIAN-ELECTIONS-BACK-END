@@ -30,7 +30,6 @@ router.post('/signup', async (req, res) => {
             spouseName,
             maritalStatus } = req.body;
 
-        // Hash the password before saving it to the database
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const user = new User({
@@ -60,8 +59,7 @@ router.post('/signup', async (req, res) => {
     }
 });
 router.get('/protected-route', verifyToken, (req, res) => {
-    // This route is protected and requires a valid JWT token
-    // The `verifyToken` middleware will check the token
+
     res.json({ message: 'You have access to this protected route.' });
 });
 // Signin
@@ -83,7 +81,7 @@ router.post('/signin', async (req, res) => {
 
         const token = jwt.sign({ username: user.username, userId: user._id }, 'mySecretKey123', { expiresIn: '1h' });
 
-        // Include the token in the response
+
         res.status(200).json({ message: 'Signin successful', token });
     } catch (error) {
         res.status(500).json({ message: error.message });
