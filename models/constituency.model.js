@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const constituencySchema = new mongoose.Schema({
     name: String,
-    districtId: { type: mongoose.Schema.Types.ObjectId, ref: 'District' },
+    districts: { type: mongoose.Schema.Types.ObjectId, ref: 'District' },
     votingPatterns: mongoose.Schema.Types.Mixed,
     strongParties: [String],
     genderData: mongoose.Schema.Types.Mixed,

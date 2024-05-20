@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const constituencyController = require('../controllers/constituencyController');
+const constituencyController = require('../controller/constituency.controller');
 
-router.post('/constituencies', constituencyController.addConstituency);
-router.get('/constituencies', constituencyController.getConstituencies);
+router.post('/create', constituencyController.addConstituency);
+router.get('/', constituencyController.getConstituencies);
 
 module.exports = router;
