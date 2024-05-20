@@ -4,6 +4,6 @@ const districtSchema = new mongoose.Schema({
     name: { type: String, required: true }
 });
 
-const District = mongoose.model('District', districtSchema, 'districts');
+const District = mongoose.model('District', districtSchema);
 
 module.exports = District;

@@ -8,6 +8,6 @@ const legislativeAssemblyConstituencySchema = new mongoose.Schema({
 
 });
 
-const Constituency = mongoose.model('LegislativeAssemblyConstituency', legislativeAssemblyConstituencySchema, 'constituencies');
+const Constituency = mongoose.model('LegislativeAssemblyConstituency', legislativeAssemblyConstituencySchema);
 
 module.exports = Constituency;
