@@ -12,9 +12,8 @@ const adminRouter = require('./routes/admin.routes');
 APP_SERVER.use('/admin', adminRouter);
 
 
+
 const usersRouter = require('./routes/user.routes');
-
-
 
 APP_SERVER.use('/api/auth', usersRouter);
 
