@@ -1,4 +1,4 @@
-// index.js
+
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -19,18 +19,17 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// Middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// MongoDB Connection
 connectDatabase();
 
 
 app.use(express.static(__dirname + "/public"));
 
-// Start Server
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

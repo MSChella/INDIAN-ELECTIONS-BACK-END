@@ -11,11 +11,15 @@ const User = require('../models/user.model');
 
 
 
-router.post('/signup', async (req, res) => {
+const register = async (req, res) => {
     try {
         const { username, password,
             firstName,
             lastName,
+            role,
+            legislativeAssemblyConstituencyId,
+            districtId,
+            talukId,
             sex,
             age,
             contactInfo,
@@ -37,6 +41,10 @@ router.post('/signup', async (req, res) => {
             password: hashedPassword,
             firstName,
             lastName,
+            role,
+            legislativeAssemblyConstituencyId,
+            districtId,
+            talukId,
             sex,
             age,
             contactInfo,
@@ -57,13 +65,13 @@ router.post('/signup', async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
-});
+};
 router.get('/protected-route', verifyToken, (req, res) => {
 
     res.json({ message: 'You have access to this protected route.' });
 });
-// Signin
-router.post('/signin', async (req, res) => {
+
+const login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -86,7 +94,13 @@ router.post('/signin', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-});
+};
 
-module.exports = router;
+module.exports = {
 
+    register,
+    login,
+    forgetPassword,
+    resetPassword,
+    protectedRoute
+};
