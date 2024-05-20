@@ -100,5 +100,5 @@ module.exports = {
 
     register,
     login,
-    protectedRoute
+
 };
