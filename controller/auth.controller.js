@@ -100,7 +100,5 @@ module.exports = {
 
     register,
     login,
-    forgetPassword,
-    resetPassword,
     protectedRoute
 };
