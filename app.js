@@ -14,10 +14,12 @@ APP_SERVER.use('/admin', adminRouter);
 
 
 const usersRouter = require('./routes/user.routes');
+const stateRouter = require('./routes/state.routes');
 const constituencyRouter = require('./routes/constituency.routes');
 const districtRouter = require('./routes/district.routes');
 
 APP_SERVER.use('/api/auth', usersRouter);
+APP_SERVER.use('/api/state', stateRouter);
 APP_SERVER.use('/api/constituency', constituencyRouter);
 APP_SERVER.use('/api/district', districtRouter)
 
