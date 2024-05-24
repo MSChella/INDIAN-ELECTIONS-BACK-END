@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     role: { type: String, required: true },
     selectedConstituency: { type: mongoose.Schema.Types.ObjectId, ref: 'LegislativeAssemblyConstituency', required: true },
     selectedDistrict: { type: mongoose.Schema.Types.ObjectId, ref: 'District', required: true },
-    talukId: { type: mongoose.Schema.Types.ObjectId, ref: 'Taluk', required: false },
+    // talukId: { type: mongoose.Schema.Types.ObjectId, ref: 'Taluk', required: false },
     sex: { type: String, required: true },
     age: { type: String, required: true },
     contactInfo: { type: String, required: true, unique: false },
